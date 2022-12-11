@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows;
 using MySql.Data.MySqlClient;
 
 namespace GettingStarted;
@@ -18,13 +20,23 @@ public class UserTable
     {
         MySqlCommand mysql_query = Connection.CreateCommand();
         mysql_query.CommandText = "SELECT login, password FROM users;";
-        Connection.Open();
+        try
+        {
+            Connection.Open();
+        }
+        catch (Exception e)
+        {
+            string readError = "errors";
+            LogErrors.ErrorFileRead("readError", e.Message);
+            MessageBox.Show("Ой, что то пошло не так");
+        }
         MySqlDataReader mysql_result = mysql_query.ExecuteReader();
 
         while (mysql_result.Read())
         {
             this.loginPassword.Add(mysql_result.GetString(0), mysql_result.GetString(1));
         }
+        Connection.Close();
     }
 
     public bool compareLoginPassword(string login, string password)
@@ -40,5 +52,24 @@ public class UserTable
             }
         }
         return result;
+    }
+
+    public void registrationUsers(string login, string password)
+    {
+        MySqlCommand command = Connection.CreateCommand();
+        command.CommandText = $"INSERT INTO users (`login`, `password`) VALUES ('{login}','{password}')";
+        try
+        {
+            Connection.Open();
+        }
+        catch (Exception e)
+        {
+            string readError = "errors";
+            LogErrors.ErrorFileRead("readError", e.Message);
+            MessageBox.Show("Ой, что то пошло не так");
+        }
+        
+        command.ExecuteNonQuery();
+        Connection.Close();
     }
 }

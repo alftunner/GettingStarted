@@ -31,12 +31,16 @@ namespace GettingStarted
             UserTable users = new UserTable();
             if (users.compareLoginPassword(loginBox.Text, passwordBox.Password))
             {
-                MessageBox.Show("Добро пожаловать");
+                Congratulations congratulations = new Congratulations();
+                congratulations.Show();
+                
             }
             else
             {
-                MessageBox.Show("Вы не авторизованы");
+                Choice_action choiceAction = new Choice_action();
+                choiceAction.Show();
             }
+            this.Close();
         }
     }
 }
