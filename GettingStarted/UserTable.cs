@@ -27,7 +27,7 @@ public class UserTable
         catch (Exception e)
         {
             string readError = "errors";
-            LogErrors.ErrorFileRead("readError", e.Message);
+            LogErrors.ErrorFileRead("readError", e.Message + DateTime.Now);
             MessageBox.Show("Ой, что то пошло не так");
         }
         MySqlDataReader mysql_result = mysql_query.ExecuteReader();
@@ -65,7 +65,7 @@ public class UserTable
         catch (Exception e)
         {
             string readError = "errors";
-            LogErrors.ErrorFileRead("readError", e.Message);
+            LogErrors.ErrorFileRead("readError", e.Message + DateTime.Now);
             MessageBox.Show("Ой, что то пошло не так");
         }
         
