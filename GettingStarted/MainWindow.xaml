@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Background="#7e57c2"
         Title="Authorization" Height="450" Width="800">
-    <Grid x:Name="authorize">
+    <Grid x:Name="authorize" ShowGridLines="True">
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
             <RowDefinition></RowDefinition>
@@ -24,12 +24,19 @@
         <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Center" VerticalAlignment="Center" FontSize="15" FontFamily="Verdana" Foreground="Bisque">Приветствуем Вас!<LineBreak/>Авторизуйтесь пожалуйста!</TextBlock>
         <StackPanel Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
             <Label Content="Login:" Target="{Binding ElementName=loginBox}" FontFamily="Verdana" Foreground="Bisque" />
-            <TextBox Name="loginBox" MaxLength="55" Height="30" FontSize="15" FontFamily="Verdana"/>
+            <TextBox Name="loginBox" MaxLength="55" Height="30" FontSize="15" FontFamily="Verdana" PreviewTextInput="UIElement_OnPreviewTextInput"/>
         </StackPanel>
         <StackPanel Grid.Row="3" Grid.Column="1" VerticalAlignment="Center">
             <Label Content="Password:" Target="{Binding ElementName=passwordBox}" FontFamily="Verdana" Foreground="Bisque"/>
-            <PasswordBox PasswordChar="*" Name="passwordBox" MaxLength="55" Height="30" FontSize="15" FontFamily="Verdana"/>
+            <PasswordBox PasswordChar="*" Name="passwordBox" MaxLength="55"  Height="30" FontSize="15" FontFamily="Verdana" PreviewTextInput="UIElement_OnPreviewTextInput"/>
         </StackPanel>
-        <Button Grid.Row="4" Grid.Column="1" MaxWidth="180" MinWidth="120" MaxHeight="40" MinHeight="30" Content="Authorize" Background="#12005e"  FontFamily="Verdana" Foreground="Bisque" Click="Authorize"></Button>
+        <Button Grid.Row="5" Grid.Column="1" MaxWidth="180" MinWidth="120" MaxHeight="40" MinHeight="30"  Content="Authorize" Background="#12005e"  FontFamily="Verdana" Foreground="Bisque" Click="Authorize">
+            <Button.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="20"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <TextBlock Grid.Row="2" Grid.Column="3" x:Name="TextBlock1" Height="30" FontSize="15" FontFamily="Verdana" Foreground="Bisque" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="5"></TextBlock>
     </Grid>
 </Window>

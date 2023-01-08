@@ -2,9 +2,9 @@ using System.Windows;
 
 namespace GettingStarted;
 
-public partial class Succes : Window
+public partial class Success : Window
 {
-    public Succes()
+    public Success()
     {
         InitializeComponent();
     }

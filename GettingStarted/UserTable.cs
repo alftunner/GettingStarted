@@ -16,7 +16,7 @@ public class UserTable
         this.loginPassword = new Dictionary<string, string>();
     }
 
-    private void getAllUsers()
+    public void getAllUsers()
     {
         MySqlCommand mysql_query = Connection.CreateCommand();
         mysql_query.CommandText = "SELECT login, password FROM users;";
@@ -27,7 +27,7 @@ public class UserTable
         catch (Exception e)
         {
             string readError = "errors";
-            LogErrors.ErrorFileRead("readError", e.Message + DateTime.Now);
+            LogErrors.ErrorFileRead("readError", $"[{DateTime.Now}]: {e.Message}");
             MessageBox.Show("Ой, что то пошло не так");
         }
         MySqlDataReader mysql_result = mysql_query.ExecuteReader();

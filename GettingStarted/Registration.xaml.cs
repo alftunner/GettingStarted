@@ -14,17 +14,23 @@ public partial class Registration : Window
     {
         
         UserTable userTable = new UserTable();
-        if (!userTable.compareLoginPassword(loginBox.Text, passwordBox.Password))
+        if (loginBox.Text == "" || passwordBox.Password == "")
+        {
+            MessageBox.Show("Заполните все поля");
+        }
+        else if (!userTable.compareLoginPassword(loginBox.Text, passwordBox.Password))
         {
             userTable.registrationUsers(loginBox.Text, passwordBox.Password);
-            Succes succes = new Succes();
+            Success succes = new Success();
             succes.Show();
+            this.Close();
         }
         else
         {
             Error error = new Error();
             error.Show();
+            this.Close();
         }
-        this.Close();
+        
     }
 }

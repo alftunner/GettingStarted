@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -33,7 +34,6 @@ namespace GettingStarted
             {
                 Congratulations congratulations = new Congratulations();
                 congratulations.Show();
-                
             }
             else
             {
@@ -41,6 +41,22 @@ namespace GettingStarted
                 choiceAction.Show();
             }
             this.Close();
+        }
+
+        private void UIElement_OnPreviewTextInput(object sender, TextCompositionEventArgs e)
+        { 
+            UserTable users = new UserTable();
+            
+            if(users.compareLoginPassword(loginBox.Text, passwordBox.Password))
+            {
+                
+                TextBlock1.Text = "+";
+            }
+            else
+            {
+                TextBlock1.Text = String.Empty;
+                TextBlock1.Text += "-";
+            }
         }
     }
 }

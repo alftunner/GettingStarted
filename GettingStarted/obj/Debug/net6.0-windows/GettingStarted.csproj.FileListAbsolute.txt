@@ -36,6 +36,6 @@ C:\Users\andru\RiderProjects\NOVOE\GettingStarted\obj\Debug\net6.0-windows\Regis
 C:\Users\andru\RiderProjects\NOVOE\GettingStarted\obj\Debug\net6.0-windows\Congratulations.g.cs
 C:\Users\andru\RiderProjects\NOVOE\GettingStarted\obj\Debug\net6.0-windows\Congratulations.baml
 C:\Users\andru\RiderProjects\NOVOE\GettingStarted\obj\Debug\net6.0-windows\Error.g.cs
-C:\Users\andru\RiderProjects\NOVOE\GettingStarted\obj\Debug\net6.0-windows\Succes.g.cs
 C:\Users\andru\RiderProjects\NOVOE\GettingStarted\obj\Debug\net6.0-windows\Error.baml
-C:\Users\andru\RiderProjects\NOVOE\GettingStarted\obj\Debug\net6.0-windows\Succes.baml
+C:\Users\andru\RiderProjects\NOVOE\GettingStarted\obj\Debug\net6.0-windows\Success.g.cs
+C:\Users\andru\RiderProjects\NOVOE\GettingStarted\obj\Debug\net6.0-windows\Success.baml
